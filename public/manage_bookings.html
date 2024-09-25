@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Bookings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInDown {
+            animation: fadeInDown 0.5s ease-out;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 shadow-lg animate-fadeInDown">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">LuxeStay</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-blue-200 transition duration-300">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition duration-300">Rooms</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition duration-300">Amenities</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-200 transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 mt-8">
+        <h2 class="text-2xl font-bold text-center my-6">Manage Your Bookings</h2>
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table id="bookingsTable" class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">Booking ID</th>
+                        <th scope="col" class="py-3 px-6">Guest Name</th>
+                        <th scope="col" class="py-3 px-6">Room Type</th>
+                        <th scope="col" class="py-3 px-6">Check-in</th>
+                        <th scope="col" class="py-3 px-6">Check-out</th>
+                        <th scope="col" class="py-3 px-6">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookingsBody">
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Sample data (replace with actual API call)
+        const bookings = [
+            { id: 12345, guestName: 'John Doe', roomType: 'Deluxe', checkIn: '2024-01-01', checkOut: '2024-01-05' },
+            { id: 12346, guestName: 'Jane Smith', roomType: 'Suite', checkIn: '2024-02-15', checkOut: '2024-02-20' },
+        ];
+
+        function renderBookings() {
+            const tbody = document.getElementById('bookingsBody');
+            tbody.innerHTML = '';
+            bookings.forEach(booking => {
+                const row = `
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">${booking.id}</th>
+                        <td class="py-4 px-6">${booking.guestName}</td>
+                        <td class="py-4 px-6">${booking.roomType}</td>
+                        <td class="py-4 px-6">${booking.checkIn}</td>
+                        <td class="py-4 px-6">${booking.checkOut}</td>
+                        <td class="py-4 px-6">
+                            <button onclick="editBooking(${booking.id})" class="text-blue-600 hover:text-blue-900 mr-2">Edit</button>
+                            <button onclick="deleteBooking(${booking.id})" class="text-red-600 hover:text-red-900">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function editBooking(id) {
+            // Implement edit functionality
+            console.log(`Editing booking ${id}`);
+        }
+
+        function deleteBooking(id) {
+            if (confirm('Are you sure you want to delete this booking?')) {
+                // Implement delete functionality
+                console.log(`Deleting booking ${id}`);
+                // After successful deletion, re-render the table
+                renderBookings();
+            }
+        }
+
+        // Initial render
+        renderBookings();
+    </script>
+</body>
+</html>

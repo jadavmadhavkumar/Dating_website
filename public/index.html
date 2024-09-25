@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feather Match - Find Your Perfect Match</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Custom Animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 1.2s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto flex flex-wrap justify-between items-center py-4 px-4 lg:px-0">
+            <div class="text-xl sm:text-2xl font-bold text-pink-600 hover:text-pink-700 transition-colors duration-300">
+                <a href="index.html" class="flex items-center">
+                    <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path></svg>
+                    <span>Feather Match</span>
+                </a>
+            </div>
+            <button class="md:hidden text-gray-600 hover:text-pink-600 focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <ul class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-1 items-center w-full md:w-auto" id="menu">
+                <li><a href="index.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Home</a></li>
+                <li><a href="#features" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Features</a></li>
+                <li><a href="#about" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">About</a></li>
+                <li><a href="chat.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Communication</a></li>
+                <li><a href="hotel_booking.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Hotel Booking</a></li>
+                <li><a href="contact.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero bg-gray-100 text-dark-gray-500 py-24 bg-cover bg-center bg-no-repeat min-h-screen flex items-center" style="background-image: url('https://cdn.pixabay.com/photo/2021/09/24/21/06/couple-6653517_1280.jpg');">
+            <div class="container mx-auto">
+                <div class="text-left slide-in bg-white bg-opacity-60 p-12 rounded-lg ml-8 max-w-lg">
+                    <h1 class="text-5xl font-bold text-pink-600 leading-tight">Find Your Perfect Match</h1>
+                    <p class="text-xl text-pink-500 mt-6">Discover meaningful connections with Feather Match</p>
+                    <a href="signup.html" class="mt-10 inline-block bg-pink-500 text-white px-8 py-4 rounded-lg shadow-md hover:bg-pink-600 transition duration-300 text-lg">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+            <!-- Stats Section -->
+            <div class="container mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-3xl font-bold text-pink-500">1M+</span>
+                    <p class="mt-2 text-gray-600">Active Users</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-3xl font-bold text-pink-500">500K+</span>
+                    <p class="mt-2 text-gray-600">Matches Made</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <span class="text-3xl font-bold text-pink-500">100K+</span>
+                    <p class="mt-2 text-gray-600">Success Stories</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="bg-white py-16">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 text-center md:text-left md:pr-8">
+                        <h2 class="text-3xl font-bold text-gray-800">Features of Feather Match</h2>
+                        <p class="mt-4 text-gray-600">Explore features designed to connect people in meaningful ways.</p>
+                        <!-- Add more feature content here -->
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0">
+                        <img src="https://as1.ftcdn.net/v2/jpg/03/13/46/30/1000_F_313463015_k4t5ZWYJGLZtsdkqoMPGZuk03GGXbqaB.jpg" alt="Features" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="bg-gray-100 py-16">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row-reverse items-center">
+                    <div class="md:w-1/2 text-center md:text-left md:pl-8">
+                        <h2 class="text-3xl font-bold text-gray-800">About Feather Match</h2>
+                        <p class="mt-4 text-gray-600">Feather Match is a dating platform focused on creating meaningful relationships.</p>
+                        <!-- Add more about content here -->
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0">
+                        <img src="https://imgix.bustle.com/uploads/getty/2022/4/4/8a4a7945-1a92-40a4-a72b-f3ac6a1366b1-getty-1385578590.jpg?w=1100" alt="About Us" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+         <!-- Communication Section -->
+         <section id="communication" class="bg-white py-16">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row-reverse items-center">
+                    <div class="md:w-1/2 mt-8 md:mt-0 md:pl-8">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Communication" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left md:pr-8">
+                        <h2 class="text-3xl font-bold text-gray-800">Feather Communication</h2>
+                        <p class="mt-4 text-gray-600">Stay connected with your match through our seamless communication tools.</p>
+                        <ul class="mt-6 text-left">
+                            <li class="flex items-center mb-2">
+                                <svg class="w-6 h-6 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Real-time messaging with end-to-end encryption
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <svg class="w-6 h-6 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Video calling for virtual dates
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Share photos and plan your next meetup
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Hotel Booking Section -->
+        <section id="hotel-booking" class="bg-gray-100 py-16">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mt-8 md:mt-0 md:pr-8">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Hotel Booking" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left md:pl-8">
+                        <h2 class="text-3xl font-bold text-gray-800">Feather Hotel Booking</h2>
+                        <p class="mt-4 text-gray-600">Find the perfect nest for your romantic getaway or business trip.</p>
+                        <ul class="mt-6 text-left">
+                            <li class="flex items-center mb-2">
+                                <svg class="w-6 h-6 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Exclusive deals for Feather Match members
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <svg class="w-6 h-6 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Handpicked romantic destinations
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                24/7 customer support for smooth bookings
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white py-16">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 text-center md:text-left md:pr-8">
+                        <h2 class="text-3xl font-bold text-gray-800">Contact Us</h2>
+                        <p class="mt-4 text-gray-600">Got questions? Reach out to us!</p>
+                        <!-- Add contact form or contact details here -->
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0">
+                        <img src="https://imgs.search.brave.com/Emedzz3KB7w71CVlr1rdq3g90A4JK63xdiOM0MmoNZE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI3/NzQwMDcxOS9waG90/by9oYXBweS1jYWxs/LWNlbnRlci1vcGVy/YXRvci5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9b081Tkk0/bGtBd0VUWTgtSTFu/a0wyUkkzNUxTNWRm/NmxrWUpMTkJiZVJZ/TT0" alt="Contact Us" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4 text-center">
+        <p>&copy; 2023 Feather Match. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Animations -->
+    <script>
+        // Fade in effect on scroll
+        window.addEventListener('scroll', function() {
+            let elements = document.querySelectorAll('.fade-in, .slide-in');
+            let windowHeight = window.innerHeight;
+            elements.forEach(function(el) {
+                let elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 300) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+
+        // Image slideshow
+        const images = [
+            "https://cdn.pixabay.com/photo/2016/11/14/04/25/couple-1822585_1280.jpg",
+            "https://cdn.pixabay.com/photo/2020/10/28/11/28/couple-5693164_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2017/08/06/18/05/people-2594745_1280.jpg",
+            "https://cdn.pixabay.com/photo/2019/09/01/18/02/wedding-4445670_1280.jpg"
+        ];
+        let currentImageIndex = 0;
+        const heroSection = document.getElementById('home');
+
+        function changeBackgroundImage() {
+            heroSection.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        setInterval(changeBackgroundImage, 5000); // Change image every 5 seconds
+
+        // Sticky navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        const navbar = document.getElementById('navbar');
+
+        // Menu toggle functionality
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('absolute');
+            menu.classList.toggle('top-16');
+            menu.classList.toggle('left-0');
+            menu.classList.toggle('right-0');
+        });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInside = navbar.contains(event.target);
+                if (!isClickInside && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Navbar background change on scroll
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white');
+                    navbar.classList.remove('bg-opacity-90');
+                } else {
+                    navbar.classList.remove('bg-white');
+                    navbar.classList.add('bg-opacity-90');
+                }
+            });
+
+            // Close menu on window resize if it's open
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768 && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            });
+        </script>
+    </body>
+</html>
+       

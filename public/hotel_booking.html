@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Booking | Feather Hotels</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .fade-in { opacity: 0; }
+        .fade-in.visible { animation: fadeIn 1s forwards; }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <!-- Header Section -->
+    <header class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto flex flex-wrap justify-between items-center py-4 px-4 lg:px-0">
+            <div class="text-xl sm:text-2xl font-bold text-pink-600 hover:text-pink-700 transition-colors duration-300">
+                <a href="index.html" class="flex items-center">
+                    <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path></svg>
+                    <span>Feather Match</span>
+                </a>
+            </div>
+            <button class="md:hidden text-gray-600 hover:text-pink-600 focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <ul class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-1 items-center w-full md:w-auto" id="menu">
+                <li><a href="index.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Home</a></li>
+                <li><a href="#rooms" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Rooms</a></li>
+                <li><a href="#gallery" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Gallery</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <!-- ... (hero content) ... -->
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="container mx-auto px-4 pt-24 pb-16">
+        <h2 class="text-3xl font-bold text-center mb-8">Check Availability</h2>
+        <div class="bg-white dark:bg-gray-800 p-4 sm:p-8 rounded-lg shadow-lg">
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                    <div>
+                        <label for="checkin" class="block mb-2">Check-in Date</label>
+                        <input type="date" id="checkin" class="w-full p-2 border rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="checkout" class="block mb-2">Check-out Date</label>
+                        <input type="date" id="checkout" class="w-full p-2 border rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="guests" class="block mb-2">Number of Guests</label>
+                        <input type="number" id="guests" min="1" max="10" class="w-full p-2 border rounded-md" required>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg">Search Availability</button>
+                </div>
+            </form>
+            <div id="results" class="mt-8"></div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-8">Our Rooms</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Standard Room" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Standard Room</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Comfortable and cozy room with all essential amenities.</p>
+                    <p class="text-lg font-bold">$99 / night</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Deluxe Room" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Deluxe Room</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Spacious room with premium furnishings and city view.</p>
+                    <p class="text-lg font-bold">$149 / night</p>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <img src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Suite" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Suite</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Luxurious suite with separate living area and panoramic views.</p>
+                    <p class="text-lg font-bold">$249 / night</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="bg-gray-100 dark:bg-gray-800 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Photo Gallery</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <img src="https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hotel Exterior" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.pexels.com/photos/2565222/pexels-photo-2565222.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Lobby" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.pexels.com/photos/751268/pexels-photo-751268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.pexels.com/photos/2291636/pexels-photo-2291636.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pool" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.pexels.com/photos/2771927/pexels-photo-2771927.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Gym" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.pexels.com/photos/3610006/pexels-photo-3610006.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Spa" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.pexels.com/photos/133920/pexels-photo-133920.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Conference Room" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bar" class="w-full h-40 object-cover rounded-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <form class="space-y-4">
+                    <div>
+                        <label for="name" class="block mb-2">Name</label>
+                        <input type="text" id="name" class="w-full p-2 border rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2">Email</label>
+                        <input type="email" id="email" class="w-full p-2 border rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2">Message</label>
+                        <textarea id="message" rows="4" class="w-full p-2 border rounded-md" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg">Send Message</button>
+                </form>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>123 Hotel Street, City, Country</p>
+                <p class="mb-2"><i class="fas fa-phone mr-2"></i>+1 (123) 456-7890</p>
+                <p class="mb-2"><i class="fas fa-envelope mr-2"></i>info@featherhotels.com</p>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold mb-2">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-600"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-blue-400 hover:text-blue-500"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-pink-500 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-700 hover:text-blue-800"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Feather Hotels</h3>
+                    <p>Experience luxury and comfort at its finest.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+                        <li><a href="#rooms" class="hover:text-gray-300">Rooms</a></li>
+                        <li><a href="#gallery" class="hover:text-gray-300">Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+                    <p class="mb-4">Subscribe to our newsletter for exclusive offers and updates.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="p-2 rounded-l-md w-full" required>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-r-md">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2023 Feather Hotels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample room data with added image URLs
+        const rooms = [
+            { id: 1, type: 'Standard Room', price: 99, capacity: 2, available: true, image: 'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { id: 2, type: 'Deluxe Room', price: 149, capacity: 3, available: true, image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            { id: 3, type: 'Suite', price: 249, capacity: 4, available: true, image: 'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=600' },
+            // Add more room objects as needed
+        ];
+
+        // Function to check room availability
+        function checkAvailability(checkin, checkout) {
+            const availableRooms = rooms.filter(room => room.available);
+            return availableRooms.sort((a, b) => a.price - b.price);
+        }
+
+        // Function to find suitable rooms based on guest count
+        function findSuitableRooms(guestCount, availableRooms) {
+            return availableRooms.filter(room => room.capacity >= guestCount);
+        }
+
+        // Event listener for the booking form
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const guestCount = parseInt(document.getElementById('guests').value);
+
+            const availableRooms = checkAvailability(checkin, checkout);
+            const suitableRooms = findSuitableRooms(guestCount, availableRooms);
+
+            displayResults(suitableRooms);
+        });
+
+        // Updated displayResults function
+        function displayResults(suitableRooms) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            if (suitableRooms.length === 0) {
+                resultsContainer.innerHTML = '<p>No suitable rooms available for the selected dates and guest count.</p>';
+                return;
+            }
+
+            suitableRooms.forEach(room => {
+                const roomElement = document.createElement('div');
+                roomElement.className = 'bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md mb-4 flex flex-col sm:flex-row items-center';
+                roomElement.innerHTML = `
+                    <img src="${room.image}" alt="${room.type}" class="w-full sm:w-1/3 h-48 object-cover rounded-lg mb-4 sm:mb-0 sm:mr-4">
+                    <div class="sm:w-2/3">
+                        <h3 class="text-xl font-semibold">${room.type}</h3>
+                        <p>Price: $${room.price} / night</p>
+                        <p>Capacity: ${room.capacity} guests</p>
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-2">Book Now</button>
+                    </div>
+                `;
+                resultsContainer.appendChild(roomElement);
+            });
+        }
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

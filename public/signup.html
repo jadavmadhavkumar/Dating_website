@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - FeatherMatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen" style="background-image: url('pexels-8moments-1323550.jpg'); background-size: cover; background-position: center;">
+
+    <!-- Header -->
+    <header class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto flex flex-wrap justify-between items-center py-4 px-4 lg:px-0">
+            <div class="text-xl sm:text-2xl font-bold text-pink-600 hover:text-pink-700 transition-colors duration-300">
+                <a href="index.html" class="flex items-center">
+                    <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path></svg>
+                    <span>Feather Match</span>
+                </a>
+            </div>
+            <button class="md:hidden text-gray-600 hover:text-pink-600 focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <ul class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-1 items-center w-full md:w-auto absolute md:relative top-16 md:top-0 left-0 right-0 bg-white md:bg-transparent shadow-lg md:shadow-none p-4 md:p-0" id="menu">
+                <li><a href="index.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Home</a></li>
+                <li><a href="#features" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Features</a></li>
+                <li><a href="#about" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">About</a></li>
+                <li><a href="chat.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Communication</a></li>
+                <li><a href="#hotel-booking" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Hotel Booking</a></li>
+                <li><a href="contact.html" class="block text-gray-700 hover:text-pink-600 hover:bg-pink-100 px-3 py-2 rounded-md transition-colors duration-300">Contact</a></li>
+            </ul>
+            <div class="hidden md:flex space-x-4">
+                <a href="login.html" class="btn bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition-all duration-300 transform hover:scale-105">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sign-Up Form -->
+    <div class="flex justify-center items-center flex-grow py-7 mt-20">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-4">
+            <h2 class="text-2xl font-bold text-center">Sign Up</h2>
+            <form class="mt-8" id="signupForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700">Full Name</label>
+                    <input type="text" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Email</label>
+                    <input type="email" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Password</label>
+                    <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Enter your password" required>
+                    <p id="passwordStrength" class="text-sm mt-1 hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Confirm your password" required>
+                    <p id="passwordMatch" class="text-sm mt-1 hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500">Gender</label>
+                    <select class="w-full p-2 border border-gray-300 rounded-md">
+                        <option>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition duration-300">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6 mt-auto">
+        <p>&copy; 2024 FeatherMatch. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+            const navbar = document.getElementById('navbar');
+
+            // Menu toggle functionality
+            menuToggle.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInside = navbar.contains(event.target);
+                if (!isClickInside && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Navbar background change on scroll
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white');
+                    navbar.classList.remove('bg-opacity-90');
+                } else {
+                    navbar.classList.remove('bg-white');
+                    navbar.classList.add('bg-opacity-90');
+                }
+            });
+
+            // Close menu on window resize if it's open
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768 && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            });
+
+            // Password validation
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const passwordStrength = document.getElementById('passwordStrength');
+            const passwordMatch = document.getElementById('passwordMatch');
+            const signupForm = document.getElementById('signupForm');
+
+            const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            function validatePassword() {
+                if (strongRegex.test(password.value)) {
+                    passwordStrength.textContent = 'Strong password';
+                    passwordStrength.className = 'text-sm mt-1 text-green-600';
+                    password.classList.remove('border-red-500');
+                } else {
+                    passwordStrength.textContent = 'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character';
+                    passwordStrength.className = 'text-sm mt-1 text-red-600';
+                    password.classList.add('border-red-500');
+                }
+                passwordStrength.classList.remove('hidden');
+            }
+
+            function checkPasswordMatch() {
+                if (password.value === confirmPassword.value) {
+                    passwordMatch.textContent = 'Passwords match';
+                    passwordMatch.className = 'text-sm mt-1 text-green-600';
+                    confirmPassword.classList.remove('border-red-500');
+                } else {
+                    passwordMatch.textContent = 'Passwords do not match';
+                    passwordMatch.className = 'text-sm mt-1 text-red-600';
+                    confirmPassword.classList.add('border-red-500');
+                }
+                passwordMatch.classList.remove('hidden');
+            }
+
+            password.addEventListener('input', validatePassword);
+            confirmPassword.addEventListener('input', checkPasswordMatch);
+
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                validatePassword();
+                checkPasswordMatch();
+
+                if (password.value !== confirmPassword.value || !strongRegex.test(password.value)) {
+                    alert('Please ensure your passwords match and meet the strength requirements.');
+                    return;
+                }
+
+                // Simulating successful sign-up
+               
+                
+                // Add fade-out animation
+                document.body.classList.add('fade-out');
+
+                // Redirect to login page after animation
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 500);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+

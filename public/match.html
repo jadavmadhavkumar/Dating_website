@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feather Match - Matches</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto flex flex-wrap justify-between items-center py-4 px-4 lg:px-0">
+            <div class="text-xl sm:text-2xl font-bold text-pink-600 hover:text-pink-700 transition-colors duration-300">
+                <a href="index.html" class="flex items-center">
+                    <svg class="w-6 h-6 sm:w-8 sm:h-8 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path></svg>
+                    <span>Feather Match</span>
+                </a>
+            </div>
+            <button class="md:hidden text-gray-600 hover:text-pink-600 focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            <ul class="hidden md:flex space-x-8" id="menu">
+                <li><a href="index.html" class="text-gray-700 hover:text-pink-600">Home</a></li>
+                <li><a href="profile.html" class="text-gray-700 hover:text-pink-600">Profile</a></li>
+                <li><a href="match.html" class="text-gray-700 hover:text-pink-600">Matches</a></li>
+                <li><a href="chat.html" class="text-gray-700 hover:text-pink-600">Chat</a></li>
+            </ul>
+            <div class="hidden md:flex space-x-4">
+                <a href="login.html" class="btn bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition-all duration-300 transform hover:scale-105">Login</a>
+                <a href="signup.html" class="btn bg-gray-200 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-300 transition-all duration-300 transform hover:scale-105">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Matches Section -->
+    <div class="container mx-auto p-8 mt-20"> <!-- Added mt-20 for top margin -->
+        <div class="bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-700 mb-6">Your Matches</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Match" class="w-24 h-24 rounded-full mx-auto mb-4">
+                    <p class="text-lg font-bold text-gray-700">Emily</p>
+                    <a href="profile.html" class="text-pink-600 mt-2 block">View Profile</a>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                    <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="Match" class="w-24 h-24 rounded-full mx-auto mb-4">
+                    <p class="text-lg font-bold text-gray-700">Michael</p>
+                    <a href="profile.html" class="text-pink-600 mt-2 block">View Profile</a>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg text-center">
+                    <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Match" class="w-24 h-24 rounded-full mx-auto mb-4">
+                    <p class="text-lg font-bold text-gray-700">Lucas</p>
+                    <a href="profile.html" class="text-pink-600 mt-2 block">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Push footer to bottom -->
+    <div class="flex-grow"></div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6">
+        <p>&copy; 2024 Feather Match. All rights reserved.</p>
+    </footer>
+
+    <!-- Add this script at the end of the body tag -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+        const navbar = document.getElementById('navbar');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('block');
+            navbar.classList.toggle('bg-white');
+            navbar.classList.toggle('bg-opacity-100');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = menu.contains(event.target);
+            const isClickOnMenuToggle = menuToggle.contains(event.target);
+
+            if (!isClickInsideMenu && !isClickOnMenuToggle && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                menu.classList.remove('block');
+                navbar.classList.remove('bg-opacity-100');
+            }
+        });
+
+        // Hide menu on resize if it's open
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                menu.classList.remove('block');
+                navbar.classList.remove('bg-opacity-100');
+            }
+        });
+    </script>
+
+</body>
+</html>
